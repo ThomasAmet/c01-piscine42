@@ -6,13 +6,13 @@
 /*   By: tamet <tamet@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 23:22:28 by tamet             #+#    #+#             */
-/*   Updated: 2023/09/13 03:19:55 by tamet            ###   ########.fr       */
+/*   Updated: 2023/09/13 07:21:18 by tamet            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-/* #include <stdio.h>
- */
+#include <stdio.h>
+
 // Bubble Sort Alg
 void	ft_swap_int(int*a, int *b)
 {
@@ -25,24 +25,22 @@ void	ft_swap_int(int*a, int *b)
 
 void	ft_sort_int_tab(int *tab, int size)
 {
-	int	ix;
 	int	i;
 
-	ix = 0;
-	while (ix < (size -1))
+	if (size < 2)
+		return ;
+	i = 0;
+	while (i < size)
 	{
-		i = 0;
-		while (i < (size - ix - 1))
-		{
-			if (tab[i] > tab[i + 1])
-				ft_swap_int((tab + i), (tab + i + 1));
-			i++;
-		}
-		ix++;
+		if (tab[i] > tab[i +1])
+			ft_swap_int((tab + i), (tab + i + 1));
+		i++;
 	}
+	ft_sort_int_tab(tab, size - 1);
+	return ;
 }
 
-/* int	main(void)
+int	main(void)
 {
 	int	i;
 	int	tab[5];
@@ -61,4 +59,3 @@ void	ft_sort_int_tab(int *tab, int size)
 		i++;
 	}
 }
- */
